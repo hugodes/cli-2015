@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {config, CognitoIdentityCredentials, LexRuntime} from 'aws-sdk';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public lexruntime: LexRuntime;
+
   title = 'error';
+
+  constructor() {
+    config.region = 'eu-central-1';
+    config.credentials = new CognitoIdentityCredentials({
+      // Provide your Pool Id here
+      IdentityPoolId: '1',
+    });
+    this.lexruntime = new LexRuntime();
+  }
 }

@@ -1,7 +1,5 @@
 Steps to reproduce:
 
-ng serve --prod
+With ng serve --prod` the app loads
 
-Look the html file, there is no differential loading.
-
-ng build --prod outputs a html file with differential loading.
+When serving those the files being outputed by `ng build --prod` the app fails with an error.
